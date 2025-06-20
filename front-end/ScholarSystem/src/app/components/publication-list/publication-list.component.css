@@ -1,0 +1,132 @@
+.filter-card {
+  background: linear-gradient(135deg, #f3f6fa 0%, #e3e9f7 100%);
+  border-radius: 18px;
+  border: none;
+  box-shadow: 0 4px 24px rgba(58,74,125,0.08);
+  margin-bottom: 0.5rem;
+}
+.publication-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 16px;
+  background: #fff;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.publication-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(58,74,125,0.13);
+  border: 1.5px solid #5c6bc0;
+}
+.bg-primary-soft {
+  background: rgba(92,107,192,0.12) !important;
+}
+.badge.bg-primary {
+  background: linear-gradient(90deg, #3a4a7d, #5c6bc0);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+}
+.badge.bg-success {
+  background: linear-gradient(90deg, #43e97b, #38f9d7);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+}
+.badge.bg-danger {
+  background: linear-gradient(90deg, #ff5858, #f09819);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+}
+.badge.bg-info {
+  background: linear-gradient(90deg, #56ccf2, #2f80ed);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+}
+.form-label {
+  font-weight: 700;
+  color: #283593;
+  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
+}
+input.form-control, select.form-select {
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-size: 1.05rem;
+}
+input.form-control:focus, select.form-select:focus {
+  border-color: #5c6bc0;
+  box-shadow: 0 0 0 0.15rem rgba(92,107,192,0.15);
+}
+.btn-outline-primary {
+  border-width: 2px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.btn-outline-primary.btn-sm {
+  border-radius: 50%;
+  padding: 0.4em 0.5em;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5em;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline-primary.btn-sm:hover {
+  background: linear-gradient(90deg, #3a4a7d, #5c6bc0);
+  color: #fff;
+  border-color: #3a4a7d;
+}
+.spinner-border {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+@media (max-width: 991px) {
+  .filter-card {
+    border-radius: 14px;
+    padding: 1.2rem 0.7rem;
+  }
+  .publication-card {
+    border-radius: 12px;
+    min-height: 260px;
+  }
+}
+@media (max-width: 600px) {
+  .form-label {
+    font-size: 0.98rem;
+  }
+  .filter-card {
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* --- FILTRAGE À DROITE, ARTICLES À GAUCHE --- */
+@media (min-width: 992px) {
+  .filter-card.sticky-top {
+    position: sticky;
+    top: 90px;
+    z-index: 10;
+  }
+}
+
+@media (max-width: 991px) {
+  .filter-card.sticky-top {
+    position: static;
+    top: auto;
+  }
+}
+
+/* Espacement entre colonnes sur desktop */
+@media (min-width: 992px) {
+  .col-lg-8 {
+    padding-right: 18px;
+  }
+  .col-lg-4 {
+    padding-left: 18px;
+  }
+} 

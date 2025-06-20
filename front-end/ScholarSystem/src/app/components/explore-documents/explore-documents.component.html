@@ -1,0 +1,22 @@
+<div class="search-bar">
+  <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="onFilterChange()" placeholder="Recherche par mot-clé...">
+  <input type="text" [(ngModel)]="tag" (ngModelChange)="onFilterChange()" placeholder="Filtrer par tag...">
+  <input type="text" [(ngModel)]="domain" (ngModelChange)="onFilterChange()" placeholder="Filtrer par domaine...">
+  <input type="text" [(ngModel)]="author" (ngModelChange)="onFilterChange()" placeholder="Filtrer par auteur...">
+  <input type="date" [(ngModel)]="date" (ngModelChange)="onFilterChange()" placeholder="Filtrer par date...">
+  <button (click)="onSearch()">Rechercher</button>
+</div>
+
+<div class="document-list">
+  <div *ngFor="let doc of documents" class="document-item">
+    <h3>{{ doc.title }}</h3>
+    <p>{{ doc.content }}</p>
+    <div *ngIf="doc.tags && doc.tags.length">
+      <span *ngFor="let t of doc.tags">#{{ t }} </span>
+    </div>
+    <div *ngIf="doc.file_url">
+      <a [href]="doc.file_url" target="_blank" class="btn btn-sm btn-outline-primary mt-2">Télécharger</a>
+    </div>
+    <hr>
+  </div>
+</div> 

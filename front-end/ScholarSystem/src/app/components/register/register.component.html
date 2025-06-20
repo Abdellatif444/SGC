@@ -1,0 +1,30 @@
+<div class="container mt-5" style="max-width: 400px;">
+  <div class="text-center mb-4">
+    <img src="assets/logo.png" alt="Logo" width="60" class="mb-2">
+  </div>
+  <h2 class="mb-4 text-center">Créer un compte</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3 input-group">
+      <span class="input-group-text"><i class="fas fa-user"></i></span>
+      <input type="text" class="form-control" id="username" [(ngModel)]="form.username" name="username" required placeholder="Nom d'utilisateur">
+    </div>
+    <div class="mb-3 input-group">
+      <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+      <input type="email" class="form-control" id="email" [(ngModel)]="form.email" name="email" required placeholder="Email">
+    </div>
+    <div class="mb-3 input-group">
+      <span class="input-group-text"><i class="fas fa-lock"></i></span>
+      <input type="password" class="form-control" id="password" [(ngModel)]="form.password" name="password" required placeholder="Mot de passe">
+    </div>
+    <div class="mb-3 input-group">
+      <span class="input-group-text"><i class="fas fa-lock"></i></span>
+      <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required placeholder="Confirmer le mot de passe">
+    </div>
+    <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+    <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+    <div class="mt-3 text-center">
+      <span>Déjà un compte ? <a routerLink="/login" class="fw-bold text-primary text-decoration-underline link-login">Se connecter</a></span>
+    </div>
+  </form>
+</div> 

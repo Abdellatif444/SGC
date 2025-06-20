@@ -1,0 +1,13 @@
+<form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+  <input type="text" [(ngModel)]="title" name="title" placeholder="Publication Title*" required>
+  <textarea [(ngModel)]="content" name="content" placeholder="Abstract*" required></textarea>
+  <input type="text" [(ngModel)]="domain" name="domain" placeholder="Domain*" required>
+  <input type="text" [(ngModel)]="tags" name="tags" placeholder="Tags (separate with commas)">
+  <input type="file" (change)="onFileChange($event, 'document')" required>
+  <input type="file" (change)="onFileChange($event, 'cover_image')">
+  <label>
+    <input type="checkbox" required>
+    I confirm that I have the rights to publish this content and agree to the terms of service
+  </label>
+  <button type="submit">Publish</button>
+</form> 

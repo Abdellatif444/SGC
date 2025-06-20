@@ -1,0 +1,650 @@
+:root {
+    /* Nouvelle palette de couleurs apaisante */
+    --primary-color: #3a4a7d; /* Bleu profond adouci */
+    --secondary-color: #5c6bc0; /* Bleu plus doux */
+    --accent-color: #42a5f5; /* Bleu clair pour les accents */
+    --light-color: #f5f7fa; /* Blanc cassé très léger */
+    --dark-color: #2c3e50; /* Noir bleuté pour le texte */
+    
+    /* Dégradés révisés */
+    --primary-gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    --secondary-gradient: linear-gradient(to right, #6dd5ed, #2193b0); /* Dégradé aqua doux */
+    --success-gradient: linear-gradient(to right, #a1c4fd, #c2e9fb); /* Dégradé nuageux */
+    
+    /* Couleurs d'interface */
+    --text-primary: var(--dark-color);
+    --text-light: var(--light-color);
+    --bg-light: var(--light-color);
+    --border-radius: 12px;
+  }
+  .text-gradient {
+    background: linear-gradient(90deg, #42a5f5, #4fc3f7, #64ffda);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline;
+    margin-top: 100px;
+  }
+  
+  /* Animations globales */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Boutons améliorés */
+  .btn {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.2);
+      transform: translateX(-100%);
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+      
+      &::after {
+        transform: translateX(0);
+      }
+    }
+    
+    &:active {
+      transform: translateY(-1px);
+    }
+    
+    &-primary {
+      background: var(--primary-gradient);
+      box-shadow: 0 4px 15px rgba(26, 35, 126, 0.3);
+    }
+    
+    &-warning {
+      background: linear-gradient(to right, #61c4f1, #43f5ec);
+      box-shadow: 0 4px 15px rgba(255, 94, 0, 0.3);
+    }
+    
+    &-outline-light {
+      border: 2px solid white;
+      background: transparent;
+      
+      &:hover {
+        background: white;
+        color: #1a237e !important;
+      }
+    }
+  }
+  
+  /* Section styles */
+  .section {
+    padding: 6rem 0;
+    position: relative;
+    
+    &-title {
+      position: relative;
+      display: inline-block;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--primary-gradient);
+      }
+    }
+  }
+  .feature-card {
+  background: rgb(209, 203, 241);
+  border-radius: 12px;
+  padding: 2.5rem;
+  height: 100%;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(0,0,0,0.03);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+  
+  .feature-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    
+    i {
+      transition: transform 0.3s ease;
+    }
+  }
+  
+  h3 {
+    transition: color 0.3s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    
+    .feature-icon i {
+      transform: scale(1.2);
+    }
+    
+    h3 {
+      color: var(--bs-primary);
+    }
+  }
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+}
+
+
+/*section des stats*/
+/* Stats Section - CSS Pur */
+.stats-section {
+    background-color: #2154d6;
+    position: relative;
+  }
+  
+  .stats-section .stat-shape {
+    position: absolute;
+    opacity: 0.05;
+    border-radius: 50%;
+  }
+  
+  .stats-section .stat-shape-1 {
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: var(--bs-primary);
+  }
+  
+  .stats-section .stat-shape-2 {
+    bottom: -150px;
+    left: -150px;
+    width: 400px;
+    height: 400px;
+    background: var(--bs-danger);
+  }
+  
+  .stats-section .stat-card {
+    background: white;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s ease;
+    height: 100%;
+    border: 0;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .stats-section .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  }
+  
+  .stats-section .stat-card:hover .stat-number {
+  background-color: #6dd5ed;
+  }
+  
+  .stats-section .stat-card:hover .stat-border-animation::before {
+    transform: translateX(0);
+  }
+  
+  .stats-section .stat-card:hover .stat-icon-circle {
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stats-section .stat-border-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .stats-section .stat-border-animation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  
+  .stats-section .border-primary::before {
+    background: var(--bs-primary);
+  }
+  
+  .stats-section .border-danger::before {
+    background: var(--bs-danger);
+  }
+  
+  .stats-section .border-success::before {
+    background: var(--bs-success);
+  }
+  
+  .stats-section .border-warning::before {
+    background: var(--bs-warning);
+  }
+  
+  .stats-section .stat-icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .stats-section .stat-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    transition: all 0.4s ease;
+  }
+  
+  .stats-section .stat-label {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+  }
+  
+  /* Soft background colors */
+  .bg-primary-soft {
+    background: rgba(13, 110, 253, 0.1);
+  }
+  
+  .bg-danger-soft {
+    background: rgba(220, 53, 69, 0.1);
+  }
+  
+  .bg-success-soft {
+    background: rgba(25, 135, 84, 0.1);
+  }
+  
+  .bg-warning-soft {
+    background: rgba(255, 193, 7, 0.1);
+  }
+  
+  /* Contenu de la carte */
+  .stat-content {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .stat-icon-wrapper {
+    margin-bottom: 1rem;
+  }
+
+  /* hero section */
+  /* Hero Section Styles */
+.hero-section {
+  background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  margin-top: 100px; /* Increased space for navbar */
+  padding: 60px 0; /* More vertical padding */
+  z-index: 1;
+  width: 100vw; /* Full viewport width */
+  margin-left: calc(-50vw + 50%); /* Technique to break out of container */
+  box-sizing: border-box;
+  min-height: calc(100vh - 100px); /* Nearly full height of viewport minus navbar */
+  display: flex;
+  align-items: center;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+}
+
+/* Container within hero for proper alignment */
+.hero-section .container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+  position: relative;
+  z-index: 5;
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  .hero-section {
+    margin-top: 80px;
+    padding: 40px 0;
+    min-height: auto;
+  }
+}
+
+/* Animation Classes */
+.animate-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-animation-delay {
+  animation: float 6s ease-in-out 0.5s infinite;
+}
+
+.pulse-effect:hover {
+  animation: pulse 1.5s infinite;
+}
+
+.scale-effect:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Keyframes */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7);
+  }
+  70% {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+  }
+}
+
+/* Avatar Stack */
+.avatar-stack {
+  display: flex;
+}
+
+.avatar {
+  margin-left: -15px;
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: translateY(-5px);
+  z-index: 10;
+}
+
+/* Hero Image Container */
+.hero-image-container {
+  position: relative;
+}
+
+.hero-main-image {
+  border: 8px solid rgba(255, 255, 255, 0.1);
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.floating-badge {
+  position: absolute;
+  max-width: 180px;
+  z-index: 10;
+}
+
+
+  /*     */
+  .testimonial-avatar {
+    width: 50px;  /* Ajustez la taille selon vos préférences */
+    height: 50px; /* Ajustez la taille selon vos préférences */
+    object-fit: cover; /* Cela permet à l'image de ne pas être déformée */
+    border-radius: 50%; /* Cela rend l'image ronde */
+}
+
+/* Généralement, les couleurs et typographies sont gérées par Bootstrap,
+   donc les styles ici visent à affiner l'apparence. */
+/* Mise en forme générale de la section de tarification */
+#pricing .card {
+  border-radius: 10px; /* Coins arrondis */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+#pricing .card:hover {
+  transform: translateY(-5px); /* Légère élévation au survol */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Ombre plus marquée au survol */
+}
+
+/* Carte avec ombre légère */
+#pricing .card.shadow-sm {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Mise en forme des titres de chaque plan */
+#pricing .card-body h6 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #6c757d; /* Gris clair pour les titres */
+}
+
+#pricing .card-body h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #343a40; /* Couleur du prix */
+}
+
+#pricing .card-body p {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+/* Badge "Popular" spécifique au plan Pro */
+#pricing .badge.bg-primary {
+  font-size: 0.875rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+/* Liste des fonctionnalités - harmonisation */
+#pricing .card-body ul {
+  padding-left: 20px;
+  list-style: none; /* Suppression des puces */
+}
+
+#pricing .card-body ul li {
+  font-size: 1rem;
+  color: #495057;
+  line-height: 1.6;
+}
+
+/* Couleur des icônes */
+#pricing .card-body ul li i {
+  color: #007bff; /* Bleu pour les options activées */
+}
+
+#pricing .card-body ul li.text-muted i {
+  color: #6c757d; /* Gris pour les options non activées */
+}
+
+/* Boutons */
+#pricing .btn {
+  font-weight: 600;
+  padding: 0.75rem;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#pricing .btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+#pricing .btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+#pricing .btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+#pricing .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Espacement et alignement */
+#pricing .row {
+  margin-top: 30px;
+}
+
+/* Spécificité pour les cartes 'Basic' et 'Pro' */
+#pricing .card-body {
+  position: relative; /* Pour le badge sur le plan Pro */
+  padding: 2rem; /* Padding égal entre les cartes */
+}
+
+/* Pour les cartes avec l'élément "Popular" */
+#pricing .card-body .badge.bg-primary {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+/* Uniformisation des espacements et alignements dans les colonnes */
+#pricing .col-lg-4 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Cards inside the columns */
+#pricing .card {
+  width: 100%; /* Assure que les cartes prennent toute la largeur disponible */
+  max-width: 400px; /* Optionnel : pour une taille uniforme */
+}
+
+/* Text alignment for better readability */
+#pricing .card-body p {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+/* Harmonisation des lignes de la liste */
+#pricing .card-body ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Ajout d'une icône de check verte dans les options activées */
+#pricing .card-body ul li i {
+  color: #28a745;
+}
+
+/* Option désactivée : couleur grise */
+#pricing .card-body ul li.text-muted i {
+  color: #6c757d;
+}

@@ -1,0 +1,21 @@
+<div class="container mt-5" style="max-width: 400px;">
+  <div class="text-center mb-4">
+    <img src="assets/logo.png" alt="Logo" width="60" class="mb-2">
+  </div>
+  <h2 class="mb-4 text-center">Connexion</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3 input-group">
+      <span class="input-group-text"><i class="fas fa-user"></i></span>
+      <input type="text" class="form-control" id="username" [(ngModel)]="form.username" name="username" required placeholder="Nom d'utilisateur ou Email">
+    </div>
+    <div class="mb-3 input-group">
+      <span class="input-group-text"><i class="fas fa-lock"></i></span>
+      <input type="password" class="form-control" id="password" [(ngModel)]="form.password" name="password" required placeholder="Mot de passe">
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Se connecter</button>
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+    <div class="mt-3 text-center">
+      <span>Pas encore de compte ? <a routerLink="/register" class="fw-bold text-primary text-decoration-underline link-register">S'inscrire</a></span>
+    </div>
+  </form>
+</div> 

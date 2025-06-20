@@ -1,0 +1,27 @@
+Django==4.2.0
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.2.2
+django-cors-headers==4.1.0
+psycopg2-binary==2.9.9
+python-dotenv==1.0.0
+channels==4.0.0
+channels-redis==4.1.0
+transformers==4.30.2
+torch==2.0.1
+numpy==1.24.3
+pandas==2.0.2
+python-magic==0.4.27
+Pillow==9.5.0
+django-filter==23.5
+django-storages==1.14.2
+
+
+#Package	Pourquoi tu en as besoin ?
+#Django>=4.0	Le framework principal
+#djangorestframework	Pour créer l'API REST
+#djangorestframework-simplejwt	Pour sécuriser les routes de ton API avec des tokens JWT
+#django-cors-headers	Pour permettre à ton Angular d'envoyer des requêtes au backend (CORS)
+#gunicorn	Serveur WSGI pour Docker / production
+#whitenoise	Sert les fichiers statiques (JS, CSS...) sans avoir besoin de Nginx
+#Pillow	Pour gérer les champs ImageField si tu as des fichiers/images
+#python-decouple	Pour charger des variables d'environnement depuis un .env (ex : secret key, token lifespan...)

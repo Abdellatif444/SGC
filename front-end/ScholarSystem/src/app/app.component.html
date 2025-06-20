@@ -1,0 +1,91 @@
+<style>
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  #main-navbar {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    top: 0 !important;
+  }
+</style>
+
+<nav id="main-navbar" class="navbar navbar-expand-lg fixed-top shadow-sm navbar-visible"
+  style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 99999 !important; background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%) !important; border-radius: 0 !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important; margin-top: 0 !important; padding-top: 0 !important;">
+  <div class="container">
+    <ul class="navbar-nav d-flex flex-row align-items-center gap-2 w-100 justify-content-start" style="width:100%;">
+      <li class="nav-item">
+        <a class="navbar-brand fw-bold fs-3" routerLink="/" style="color: white !important;">
+          <i class="fas fa-graduation-cap me-2"></i>ScholarSystem
+        </a>
+      </li>
+      <li class="nav-item"><a href="#features" class="nav-link fw-semibold" style="color: white !important;">Features</a></li>
+      <li class="nav-item"><a href="#how-it-works" class="nav-link fw-semibold" style="color: white !important;">How It Works</a></li>
+      <li class="nav-item"><a href="#testimonials" class="nav-link fw-semibold" style="color: white !important;">Testimonials</a></li>
+      <li class="nav-item"><a href="#pricing" class="nav-link fw-semibold" style="color: white !important;">Pricing</a></li>
+      <li class="nav-item"><a routerLink="/filtrage" class="nav-link fw-semibold" style="color: white !important;"><i class="fas fa-search me-1"></i> Recherche avancée</a></li>
+      <li class="nav-item"><a routerLink="/chat" class="nav-link fw-semibold" style="color: white !important;"><i class="fas fa-comments me-1"></i> Chat</a></li>
+      <li class="nav-item"><a routerLink="/publish" class="nav-link fw-semibold" style="color: white !important;"><i class="fas fa-upload me-1"></i> Publish</a></li>
+      <li *ngIf="!isAuthenticated()" class="nav-item ms-lg-3">
+        <a class="btn btn-outline-primary btn-sm me-2 d-flex align-items-center justify-content-center" routerLink="/login" style="min-width:32px; min-height:32px; padding:0.15rem 0.4rem; font-size:1rem;">
+          <i class="fas fa-sign-in-alt"></i>
+          <span class="d-inline d-lg-none ms-1">Se connecter</span>
+        </a>
+      </li>
+      <li *ngIf="!isAuthenticated()" class="nav-item">
+        <a class="btn btn-outline-success btn-sm d-flex align-items-center justify-content-center" routerLink="/register" style="min-width:32px; min-height:32px; padding:0.15rem 0.4rem; font-size:1rem;">
+          <i class="fas fa-user-plus"></i>
+          <span class="d-inline d-lg-none ms-1">S'inscrire</span>
+        </a>
+      </li>
+      <li *ngIf="isAuthenticated()" class="nav-item ms-lg-3 d-flex align-items-center">
+        <a [routerLink]="['/profile']" class="d-flex align-items-center text-decoration-none">
+          <img [src]="getProfileImage()" alt="Profile" width="32" height="32" class="rounded-circle me-2" style="object-fit: cover; border: 2px solid #fff;">
+          <span class="me-2 text-white">{{ getUsername() || 'Profile' }}</span>
+        </a>
+        <button class="btn btn-outline-danger btn-sm ms-2" (click)="logout()" title="Déconnexion">
+          <i class="fas fa-sign-out-alt"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <i class="fas fa-graduation-cap"></i>
+        <span>ScholarSystem</span>
+      </div>
+      <p class="footer-tagline">Empowering education through technology</p>
+    </div>
+
+    <div class="footer-social">
+      <a href="#" aria-label="Facebook" class="social-link">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="#" aria-label="Twitter" class="social-link">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" aria-label="LinkedIn" class="social-link">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="#" aria-label="Instagram" class="social-link">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+
+    <div class="footer-contact">
+      <p><i class="fas fa-envelope"></i> contact{{'@'}}scholarsystem.com</p>
+      <p><i class="fas fa-phone-alt"></i> +(212) 695716888</p>
+    </div>
+
+    <div class="footer-copyright">
+      <p>© 2025 ScholarSystem. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+ 

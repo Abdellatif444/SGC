@@ -1,0 +1,33 @@
+<div class="chat-container">
+  <div *ngIf="notConnected" class="alert alert-warning text-center mb-3">
+    <i class="fas fa-exclamation-triangle me-2"></i>
+    Connecte-toi pour utiliser le chat avec ton nom d'utilisateur !
+  </div>
+  <div class="chat-box">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <div class="chat-header">
+        <span>Connecté en tant que <b>{{ username }}</b></span>
+      </div>
+      <button class="btn btn-outline-danger btn-sm" (click)="resetMessages()" title="Réinitialiser le chat">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+    <div id="chat-messages" class="chat-messages mb-2" style="height: 350px; overflow-y: auto; background: #f8fafc; border-radius: 8px; padding: 1rem; border: 1px solid #e0e7ef;">
+      <div *ngFor="let msg of messages" class="chat-message mb-2">
+        <span class="fw-bold" [ngStyle]="{color: msg.user === username ? '#2575fc' : (msg.user === 'IA' ? '#b80404' : '#3a4a7d')}">{{ msg.user }}</span>
+        <span class="text-muted small ms-2">{{ msg.timestamp | date:'shortTime' }}</span>
+        <div class="chat-content">{{ msg.content }}</div>
+      </div>
+      <div *ngIf="isLoadingLLM" class="text-center text-primary mt-2">
+        <i class="fas fa-spinner fa-spin"></i> L'IA réfléchit...
+      </div>
+    </div>
+    <form (ngSubmit)="sendMessage()" class="d-flex gap-2">
+      <input [(ngModel)]="newMessage" name="message" class="form-control" placeholder="Écris ton message..." autocomplete="off" (keyup.enter)="sendMessage()">
+      <button type="submit" class="btn btn-success">Envoyer</button>
+      <button type="button" class="btn btn-primary" (click)="askLLM()" [disabled]="isLoadingLLM" title="Demander à l'IA">
+        <i class="fas fa-robot"></i>
+      </button>
+    </form>
+  </div>
+</div>

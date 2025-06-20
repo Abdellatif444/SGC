@@ -1,0 +1,37 @@
+/* Critical navbar styles */
+#main-navbar {
+  display: flex !important;
+  visibility: visible !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 99999 !important;
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%) !important;
+}
+
+/* Color overrides for navbar */
+#main-navbar .nav-link {
+  color: white !important;
+}
+
+#main-navbar .navbar-brand {
+  color: white !important;
+}
+
+/* Button style */
+#main-navbar .btn-outline-primary {
+  color: white !important;
+  border-color: white !important;
+}
+
+#main-navbar .btn-outline-primary:hover {
+  background-color: white !important;
+  color: #6a11cb !important;
+}
+
+/* Make room for the navbar */
+body {
+  padding-top: 80px !important;
+} 
