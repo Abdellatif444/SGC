@@ -184,35 +184,5 @@ ALLOWED_HOSTS=votre-domaine.com
 CORS_ALLOWED_ORIGINS=https://votre-domaine.com
 ```
 
-## 🤝 Contribution
-
-1. Fork le projet
-2. Créer une branche pour votre fonctionnalité (`git checkout -b feature/AmazingFeature`)
-3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
-
-## 📝 License
-
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
-
-## 👥 Auteurs
-
-- **Kaoutar** - *Développement initial* - [VotreGitHub](https://github.com/votre-username)
-
-## 🙏 Remerciements
-
-- Angular Team pour le framework frontend
-- Django Software Foundation pour le framework backend
-- Bootstrap et Tailwind CSS pour les composants UI
-
-## 📞 Support
-
-Si vous rencontrez des problèmes ou avez des questions :
-
-- Ouvrir une [issue](https://github.com/votre-username/SGC/issues)
-- Contacter : votre-email@example.com
-
----
 
 ⭐ N'oubliez pas de donner une étoile au projet si vous l'aimez ! 
